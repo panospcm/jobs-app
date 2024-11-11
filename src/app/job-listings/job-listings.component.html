@@ -1,0 +1,13 @@
+<div class="job-listings">
+    <h2>Ledige Stillinger</h2>
+    <div *ngFor="let job of jobListings" class="job-card">
+      <h3>{{ job.title }}</h3>
+      <p><strong>Bedrift:</strong> {{ job._feed_entry.businessName }}</p>
+      <p><strong>Sted:</strong> {{ job._feed_entry.municipal }}</p>
+      <p><strong>Status:</strong> {{ job._feed_entry.status }}</p>
+      <p><strong>Åpen for søknad siden:</strong> {{ job.date_modified | date:'shortDate' }}</p>
+      <p>{{ job.content_text }}</p>
+      <a [routerLink]="job.url">Les mer</a>
+    </div>
+    <button *ngIf="nextUrl" (click)="loadJobListings(nextUrl)">Last flere jobber</button>
+  </div>
