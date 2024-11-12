@@ -1,0 +1,157 @@
+:host {
+  display: block;
+}
+
+.title-heading {
+  line-height: 26px;
+}
+
+@mixin home-common {
+  background-size: cover !important;
+  align-self: center;
+  position: relative;
+  background-position: center center;
+}
+
+.bg-half-170 {
+  padding: 170px 0;
+  background-image: url('../../assets/bg.9f5fc6c84f7a4eb68e0c.jpg');
+  @include home-common();
+
+  @media (max-width: 767px) {
+    padding: 120px 0;
+    height: auto;
+  }
+}
+
+.bg-overlay {
+  background-color: #1e293ba6;
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+}
+
+.bg-gradient-overlay {
+  background: linear-gradient(180deg, #161c2d00 0, #161c2d80 25%, #161c2dbf 50%, #161c2d);
+}
+
+.shape {
+  bottom: -1px;
+  left: 0;
+  position: absolute;
+  right: 0;
+}
+
+.shape>svg {
+  height: auto;
+  transform: scale(2);
+  transform-origin: top center;
+  width: 100%;
+}
+
+.ep-recent-job-item {
+  border: 1px solid #EAEDF4;
+  border-radius: 10px;
+  padding: 45px 30px 30px 30px;
+  margin-bottom: 30px;
+  text-align: center;
+  position: relative;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #3b82f60d !important;
+    border-color: #cddffd;
+}
+}
+
+.ep-recent-job-item .ep-company-logo {
+  height: 115px;
+  width: 115px;
+  background-size: cover;
+  background-position: center;
+  display: inline-block;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.ep-recent-job-item .ep-company-name {
+  display: block;
+}
+
+.ep-recent-job-item .ep-job-title {
+  font-size: 20px;
+  line-height: 25px;
+  margin-bottom: 0;
+}
+
+.ep-recent-job-item .ep-job-location a {
+  color: #6A7179;
+  font-size: 16px;
+}
+
+.ep-recent-job-item .ep-job-location i {
+  color: #6A7179;
+  font-size: 14px;
+  margin-right: 5px;
+}
+
+.ep-recent-job-item .ep-job-tags {
+  border-top: 1px solid #E6E9F4;
+  border-bottom: 1px solid #E6E9F4;
+  padding: 13px 0 8px 0;
+  margin-top: 25px;
+}
+
+.ep-recent-job-item .ep-job-tags a {
+  background: #F1F1F1;
+  margin-right: 10px;
+  color: #0F2239;
+  padding: 5px 15px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+.ep-recent-job-item .ep-job-salary-and-deadline {
+  display: flex;
+  font-weight: 500;
+  color: #0F2239;
+  margin-top: 20px;
+}
+
+
+.ep-recent-job-item .ep-job-apply-button .ep-button {
+  background-color: transparent;
+  border: 1px solid #EAEDF4;
+  color: #0f2339;
+  width: 100%;
+  justify-content: center;
+  padding: 12px 15px 12px 20px;
+  cursor: pointer;
+}
+
+.ep-recent-job-item .ep-save-job {
+  position: absolute;
+  left: 17px;
+  top: 17px;
+}
+
+.ep-recent-job-item .ep-save-job label {
+  background: #0859F7;
+  color: #ffffff;
+  padding: 0px 10px 1px 10px;
+  border-radius: 5px;
+  font-size: 0.725rem;
+  cursor: pointer;
+}
+
+
+@media only screen and (max-width: 991px) {
+  .ep-recent-job-item {
+    padding: 45px 25px 30px 25px;
+  }
+}

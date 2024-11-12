@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+.ep-button, input[type="submit"], button[type="submit"] {
+    padding: 18px 40px 16px 40px;
+    text-transform: capitalize;
+    font-weight: 500;
+    line-height: 1;
+    border-radius: 50px;
+    font-size: 16px;
+    border: 1px solid;
+    color: #ffffff;
+    display: inline-flex;
+    align-items: center;
+    background-color: #0859F7;
+}

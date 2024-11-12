@@ -1,13 +1,89 @@
-<div class="job-listings">
-    <h2>Ledige Stillinger</h2>
-    <div *ngFor="let job of jobListings" class="job-card">
-      <h3>{{ job.title }}</h3>
-      <p><strong>Bedrift:</strong> {{ job._feed_entry.businessName }}</p>
-      <p><strong>Sted:</strong> {{ job._feed_entry.municipal }}</p>
-      <p><strong>Status:</strong> {{ job._feed_entry.status }}</p>
-      <p><strong>Åpen for søknad siden:</strong> {{ job.date_modified | date:'shortDate' }}</p>
-      <p>{{ job.content_text }}</p>
-      <a [routerLink]="job.url">Les mer</a>
+<section class="bg-half-170 d-table w-100">
+  <div class="bg-overlay bg-gradient-overlay"></div>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12">
+        <div class="title-heading text-center z-1 position-relative">
+          <h1 class="heading fw-semibold mb-0 sub-heading text-white title-dark">Job Vacancies 
+          </h1>
+        </div>
+      </div>
     </div>
-    <button *ngIf="nextUrl" (click)="loadJobListings(nextUrl)">Last flere jobber</button>
+    <div class="position-middle-bottom">
+
+    </div>
   </div>
+</section>
+<div class="position-relative">
+  <div class="shape overflow-hidden text-white"><svg viewBox="0 0 2880 48" fill="none"
+      xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="currentColor"></path>
+    </svg></div>
+</div>
+
+@defer(on viewport) {
+
+
+
+<div class="job-listings mt-5">
+
+  <div class="container">
+    <div class="row">
+      @for (job of jobListings(); track job.id) {
+
+
+      <div class="col-xl-4 col-lg-6 col-md-6" (click)="goToJobDetails(job.id)">
+        <div class="ep-recent-job-item">
+          <div class="ep-save-job">
+            <label title="save" class="btn-add-favourites jobbookmark text-sm">{{job._feed_entry.status}}</label>
+          </div>
+          <div class="job-rating employer-rating">
+            <i class="far fa-star off-white"></i> <i class="far fa-star off-white"></i> <i
+              class="far fa-star off-white"></i> <i class="far fa-star off-white"></i> <i
+              class="far fa-star off-white"></i>
+
+          </div>
+          <div class="ep-job-top">
+
+
+            <span class="ep-company-name ep-primary-color">{{ job._feed_entry.businessName }}</span>
+
+            <div class="ep-job-url">
+              <h4 class="ep-job-title">{{ job.title }}</h4>
+            </div>
+
+            <div class="ep-job-location">
+             {{ job._feed_entry.municipal }}
+            </div>
+          </div>
+
+
+
+
+          <div class="ep-job-salary-and-deadline">
+
+            <div class="ep-job-deadline">
+              <span class="deadline-text">Modified:</span>
+              {{ jobListingsService.convertDate(job.date_modified) }}
+            </div>
+          </div>
+
+          <div class="ep-job-apply-button">
+            <a class="ep-button pointer" >View details</a>
+          </div>
+        </div>
+      </div>
+
+      }
+    </div>
+  </div>
+</div>
+} @placeholder() {
+<div class="d-flex align-items-center justify-content-center my-5">
+  <p>loading...</p>
+</div>
+
+}
+<div class="d-flex align-items-center justify-content-center my-5">
+  <button class="hijobs-button ep-button hijobs-button-one" (click)="loadMore()">Load More Jobs</button>
+</div>
